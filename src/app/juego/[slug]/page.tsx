@@ -45,7 +45,7 @@ export default async function GamePage({ params }: Props) {
   if (!game) notFound();
 
   // Fire-and-forget view counter
-  incrementViews(params.slug).catch(() => {});
+  incrementViews(slug).catch(() => {});
 
   const relatedGames = await getRelatedGames(game, 6);
 
