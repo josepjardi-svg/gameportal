@@ -8,7 +8,6 @@ import { getGamesByTag } from '@/lib/games';
 import { SITE_NAME, SITE_URL } from '@/lib/utils';
 
 interface Props {
-  interface Props {
   params: Promise<{ tag: string }>;
   searchParams: Promise<{ page?: string }>;
 }
