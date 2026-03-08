@@ -21,18 +21,19 @@ const tags = [
 ];
 
 const games = [
+
   {
-    title: 'Super Mario Clone',
-    slug: 'super-mario-clone',
-    description: 'Un clásico de plataformas al estilo Mario. Salta, corre y recoge monedas en este emocionante juego de plataformas HTML5.',
-    instructions: 'Flechas: Moverse\nEspacio/Flecha Arriba: Saltar\nZ: Correr\nP: Pausa',
-    category: 'arcade',
-    thumbnail: 'https://picsum.photos/seed/mario/460/345',
-    gameUrl: 'https://www.addictinggames.com/embed/html5',
-    tags: JSON.stringify(['plataformas', 'arcade', 'retro', '2d']),
-    views: 125430, rating: 4.7, featured: true, isNew: false,
-    width: 800, height: 600,
-  },
+  title: 'Bola y laberinto',
+  slug: 'bola-y-laberinto',
+  description: 'Bola y Laberinto Puzzle es un desafío juego de laberinto. Desliza la bola para moverla y recoger estrellas. Reúne todas las estrellas y avanza al siguiente nivel. ¡Únete a esta competencia desafío ahora mismo! Si disfrutaste el juego, no olvides calificarlo.',
+  instructions: 'Desliza la bola para moverla y recoger estrellas ',
+  category: 'puzzle', // debe coincidir con una categoría
+  thumbnail: 'https://url-de-la-imagen.jpg',
+  gameUrl: 'https://html5.gamemonetize.co/zstd5764fo8lqve11xk5nizwy6kzjx8x/',
+  tags: JSON.stringify(['puzzle', 'clásico', 'retro', 'arcade']),
+  views: 0, rating: 0, featured: false, isNew: true,
+  width: 720, height: 1280,
+},
   {
     title: 'Tetris Clásico',
     slug: 'tetris-clasico',
