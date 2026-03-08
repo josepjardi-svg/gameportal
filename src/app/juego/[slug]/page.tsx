@@ -10,7 +10,7 @@ import { getGameBySlug, getRelatedGames, incrementViews } from '@/lib/games';
 import { formatViews, formatDate, SITE_NAME, SITE_URL } from '@/lib/utils';
 
 interface Props {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
