@@ -9,13 +9,14 @@ import { getGames, getCategories } from '@/lib/games';
 import { SITE_NAME, SITE_URL } from '@/lib/utils';
 
 interface Props {
-  params: { categoria: string };
-  searchParams: { page?: string; sort?: string };
+  params: Promise<{ categoria: string }>;
+  searchParams: Promise<{ page?: string; sort?: string }>;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { categoria } = await params;
   const categories = await getCategories();
-  const cat = categories.find(c => c.slug === params.categoria);
+  const cat = categories.find(c => c.slug === categoria);
   if (!cat) return { title: 'Categoría no encontrada' };
 
   const title = `Juegos de ${cat.name} Online Gratis | ${SITE_NAME}`;
@@ -32,12 +33,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export const revalidate = 60;
 
 export default async function CategoryPage({ params, searchParams }: Props) {
+  const { categoria } = await params;
+  const { page: pageParam, sort: sortParam } = await searchParams;
   const [categories] = await Promise.all([getCategories()]);
-  const category = categories.find(c => c.slug === params.categoria);
+  const category = categories.find(c => c.slug === categoria);
   if (!category) notFound();
 
-  const page = parseInt(searchParams.page || '1');
-  const sort = (searchParams.sort as 'views' | 'rating' | 'createdAt') || 'views';
+  const page = parseInt(pageParam || '1');
+  const sort = (sortParam as 'views' | 'rating' | 'createdAt') || 'views';
 
   const { data: games, total, totalPages } = await getGames({
     category: category.name.toLowerCase(),
@@ -76,7 +79,7 @@ export default async function CategoryPage({ params, searchParams }: Props) {
       <div className="section-container py-8">
         {/* Category filters */}
         <div className="mb-6 overflow-x-auto no-scrollbar">
-          <CategoryMenu categories={categories} activeSlug={params.categoria} />
+          <CategoryMenu categories={categories} activeSlug={categoria} />
         </div>
 
         {/* Ad */}
