@@ -8,12 +8,14 @@ import { getGamesByTag } from '@/lib/games';
 import { SITE_NAME, SITE_URL } from '@/lib/utils';
 
 interface Props {
-  params: { tag: string };
-  searchParams: { page?: string };
+  interface Props {
+  params: Promise<{ tag: string }>;
+  searchParams: Promise<{ page?: string }>;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const tagName = params.tag.replace(/-/g, ' ');
+  const { tag } = await params;
+  const tagName = tag.replace(/-/g, ' ');
   const title = `Juegos de ${tagName} | ${SITE_NAME}`;
   const description = `Encuentra los mejores juegos de ${tagName} HTML5 online gratis. Juega sin descargar nada.`;
   return {
@@ -26,9 +28,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export const revalidate = 60;
 
 export default async function TagPage({ params, searchParams }: Props) {
-  const page = parseInt(searchParams.page || '1');
-  const tagName = params.tag.replace(/-/g, ' ');
-
+  const { tag } = await params;
+  const { page: pageParam } = await searchParams;
+  const page = parseInt(pageParam || '1');
+  const tagName = tag.replace(/-/g, ' ');
   const { data: games, total, totalPages } = await getGamesByTag(tagName, { page, limit: 24 });
 
   if (page === 1 && games.length === 0) notFound();
