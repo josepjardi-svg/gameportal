@@ -14,7 +14,8 @@ interface Props {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const game = await getGameBySlug(params.slug);
+  const { slug } = await params;
+  const game = await getGameBySlug(slug);
   if (!game) return { title: 'Juego no encontrado' };
 
   const title = `${game.title} - Jugar Online Gratis | ${SITE_NAME}`;
@@ -39,7 +40,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export const revalidate = 30;
 
 export default async function GamePage({ params }: Props) {
-  const game = await getGameBySlug(params.slug);
+  const { slug } = await params;
+  const game = await getGameBySlug(slug);
   if (!game) notFound();
 
   // Fire-and-forget view counter
