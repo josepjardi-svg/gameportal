@@ -55,13 +55,13 @@ export default async function JuegosPage({ searchParams }: Props) {
               { value: 'rating', label: '⭐ Mejor valorado' },
               { value: 'createdAt', label: '✨ Más nuevos' },
             ].map(opt => (
-              
+  
                 key={opt.value}
                 href={`?sort=${opt.value}`}
                 className={`text-xs px-3 py-1.5 rounded-full border transition-colors ${
                   sort === opt.value
-                    ? 'bg-accent text-white border-accent'
-                    : 'bg-surface border-border text-muted hover:text-white'
+                  ? 'bg-accent text-white border-accent'
+                  : 'bg-surface border-border text-muted hover:text-white'
                 }`}
               >
                 {opt.label}
