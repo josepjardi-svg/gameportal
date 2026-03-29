@@ -43,7 +43,7 @@ export default async function CategoryPage({ params, searchParams }: Props) {
   const sort = (sortParam as 'views' | 'rating' | 'createdAt') || 'views';
 
   const { data: games, total, totalPages } = await getGames({
-    category: category.name.toLowerCase(),
+    category: category.slug,
     page,
     limit: 24,
     sort,
