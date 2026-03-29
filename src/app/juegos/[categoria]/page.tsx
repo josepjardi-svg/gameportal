@@ -55,7 +55,6 @@ export default async function JuegosPage({ searchParams }: Props) {
               { value: 'rating', label: '⭐ Mejor valorado' },
               { value: 'createdAt', label: '✨ Más nuevos' },
             ].map(opt => (
-  
                 key={opt.value}
                 href={`?sort=${opt.value}`}
                 className={`text-xs px-3 py-1.5 rounded-full border transition-colors ${
