@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "db:seed": "node scripts/seed.js",
-    "db:push": "npx prisma db push"
+    "db:push": "npx prisma db push",
     "preinstall": "rm -rf node_modules"
   },
   "dependencies": {
