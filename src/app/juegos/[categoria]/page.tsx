@@ -84,7 +84,7 @@ export default async function CategoryPage({ params, searchParams }: Props) {
               { value: 'rating', label: '⭐ Mejor valorado' },
               { value: 'createdAt', label: '✨ Más nuevos' },
             ].map(opt => (
-              
+                <a
                 key={opt.value}
                 href={`?sort=${opt.value}`}
                 className={`text-xs px-3 py-1.5 rounded-full border transition-colors ${
