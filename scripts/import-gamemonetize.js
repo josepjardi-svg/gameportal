@@ -138,7 +138,7 @@ async function updateCategoryCounts() {
 
 // Configuración de importación
 const options = {
-  amount: 100,      // Número de juegos a importar (max 1000)
+  amount: 200,      // Número de juegos a importar (max 1000)
   category: 'All', // All, Action, Puzzle, Racing, Sports, Shooting, Arcade, Adventure...
   type: 'html5',   // html5 o mobile
   popularity: 'mostplayed', // Newest, Most Popular, Hot Games, Best Games
