@@ -5,6 +5,7 @@ const prisma = new PrismaClient();
 
 // Mapeo de categorías de GameMonetize a las nuestras
 const categoryMap = {
+  // Inglés
   'Action': 'accion',
   'Adventure': 'aventura',
   'Puzzle': 'puzzle',
@@ -20,6 +21,22 @@ const categoryMap = {
   'Hypercasual': 'arcade',
   'Soccer': 'deportes',
   'Stickman': 'accion',
+  'Fighting': 'accion',
+  'Boys': 'accion',
+  'Girls': 'arcade',
+  // Español
+  'Acción': 'accion',
+  'Aventura': 'aventura',
+  'Rompecabezas': 'puzzle',
+  'Carreras': 'carreras',
+  'Deportes': 'deportes',
+  'Disparos': 'disparos',
+  'Arcade': 'arcade',
+  'Multijugador': 'accion',
+  'Hipercasual': 'arcade',
+  'Lucha': 'accion',
+  'Fútbol': 'deportes',
+  'Clicker': 'arcade',
 };
 
 function slugify(text) {
@@ -138,10 +155,10 @@ async function updateCategoryCounts() {
 
 // Configuración de importación
 const options = {
-  amount: 200,      // Número de juegos a importar (max 1000)
-  category: 'All', // All, Action, Puzzle, Racing, Sports, Shooting, Arcade, Adventure...
+  amount: 50,      // Número de juegos a importar (max 1000)
+  category: 'Soccer', // All, Action, Puzzle, Racing, Sports, Shooting, Arcade, Adventure...
   type: 'html5',   // html5 o mobile
-  popularity: 'mostplayed', // Newest, Most Popular, Hot Games, Best Games
+  popularity: 'newest', // Newest, Most Popular, Hot Games, Best Games
 };
 
 importFromGameMonetize(options)

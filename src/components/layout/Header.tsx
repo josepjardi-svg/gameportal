@@ -11,13 +11,15 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const navLinks = [
-    { href: '/', label: 'Inicio' },
-    { href: '/juegos/accion', label: 'Acción' },
-    { href: '/juegos/puzzle', label: 'Puzzle' },
-    { href: '/juegos/aventura', label: 'Aventura' },
-    { href: '/juegos/deportes', label: 'Deportes' },
-    { href: '/juegos/carreras', label: 'Carreras' },
-  ];
+  { href: '/', label: 'Inicio' },
+  { href: '/juegos/accion', label: 'Acción' },
+  { href: '/juegos/arcade', label: 'Arcade' },
+  { href: '/juegos/aventura', label: 'Aventura' },
+  { href: '/juegos/carreras', label: 'Carreras' },
+  { href: '/juegos/deportes', label: 'Deportes' },
+  { href: '/juegos/disparos', label: 'Disparos' },
+  { href: '/juegos/puzzle', label: 'Puzzle' },
+];
 
   return (
     <header className="sticky top-0 z-50 bg-surface/95 backdrop-blur-sm border-b border-border">
