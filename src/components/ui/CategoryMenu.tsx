@@ -40,16 +40,16 @@ export default function CategoryMenu({ categories, activeSlug, className, varian
   return (
     <div className={cn('flex flex-wrap gap-2', className)}>
       <Link
-        href="/juegos"
-        className={cn(
-          'px-3 py-1.5 rounded-full text-sm font-medium border transition-colors',
-          !activeSlug
-            ? 'bg-accent text-white border-accent'
-            : 'bg-surface border-border text-muted hover:text-white hover:border-accent/50'
-        )}
-      >
-        🎮 Todos
-      </Link>
+  href="/juegos/todos"
+  className={cn(
+    'px-3 py-1.5 rounded-full text-sm font-medium border transition-colors',
+    activeSlug === 'todos'
+      ? 'bg-accent text-white border-accent'
+      : 'bg-surface border-border text-muted hover:text-white hover:border-accent/50'
+  )}
+>
+  🎮 Todos
+</Link>
       {categories.map(cat => (
         <Link
           key={cat.slug}
