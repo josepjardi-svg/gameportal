@@ -62,7 +62,7 @@ export default async function HomePage() {
 
           {/* Categories quick access */}
           <div className="flex flex-wrap justify-center gap-2">
-            {categories.slice(0, 6).map(cat => (
+            {categories.slice(0, 8).map(cat => (
               <Link
                 key={cat.slug}
                 href={`/juegos/${cat.slug}`}
