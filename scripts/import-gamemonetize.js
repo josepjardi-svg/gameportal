@@ -37,6 +37,11 @@ const categoryMap = {
   'Lucha': 'accion',
   'Fútbol': 'deportes',
   'Clicker': 'arcade',
+  'Rompecabezas': 'puzzle',
+  'rompecabezas': 'puzzle',
+  'Puzzle': 'puzzle',
+  'puzzle': 'puzzle',
+  'Puzzles': 'puzzle',
 };
 
 function slugify(text) {
@@ -54,7 +59,11 @@ function slugify(text) {
 function mapCategory(gmCategory) {
   if (!gmCategory) return 'arcade';
   const firstCat = gmCategory.split(',')[0].trim();
-  return categoryMap[firstCat] || 'arcade';
+  const mapped = categoryMap[firstCat];
+  if (!mapped) {
+    console.log(`  ⚠️  Categoría no mapeada: "${firstCat}"`);
+  }
+  return mapped || 'arcade';
 }
 
 async function importFromGameMonetize(options = {}) {
@@ -156,7 +165,7 @@ async function updateCategoryCounts() {
 // Configuración de importación
 const options = {
   amount: 50,      // Número de juegos a importar (max 1000)
-  category: 'Soccer', // All, Action, Puzzle, Racing, Sports, Shooting, Arcade, Adventure...
+  category: '13', // All, Action, Puzzle, Racing, Sports, Shooting, Arcade, Adventure...
   type: 'html5',   // html5 o mobile
   popularity: 'newest', // Newest, Most Popular, Hot Games, Best Games
 };
