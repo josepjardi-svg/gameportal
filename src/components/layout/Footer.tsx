@@ -11,7 +11,6 @@ export default function Footer() {
     { slug: 'aventura', name: 'Aventura' },
     { slug: 'deportes', name: 'Deportes' },
     { slug: 'carreras', name: 'Carreras' },
-    { slug: 'estrategia', name: 'Estrategia' },
     { slug: 'disparos', name: 'Disparos' },
     { slug: 'arcade', name: 'Arcade' },
   ];
