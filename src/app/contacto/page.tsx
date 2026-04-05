@@ -21,7 +21,7 @@ export default function ContactoPage() {
         </section>
         <section>
           <h2 className="text-white font-semibold text-lg mb-2">Tiempo de respuesta</h2>
-          <p>Intentamos responder a todos los mensajes en un plazo de 48 horas.</p>
+          <p>Intentamos responder a todos los mensajes en un plazo de 72 horas.</p>
         </section>
       </div>
     </div>

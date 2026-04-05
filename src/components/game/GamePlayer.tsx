@@ -1,4 +1,3 @@
-// src/components/game/GamePlayer.tsx
 'use client';
 
 import { useRef, useState, useCallback } from 'react';
@@ -20,7 +19,6 @@ export default function GamePlayer({ gameUrl, title, width = 800, height = 600 }
   const toggleFullscreen = useCallback(() => {
     const container = containerRef.current;
     if (!container) return;
-
     if (!document.fullscreenElement) {
       container.requestFullscreen().then(() => setIsFullscreen(true)).catch(console.error);
     } else {
@@ -88,22 +86,24 @@ export default function GamePlayer({ gameUrl, title, width = 800, height = 600 }
       </div>
 
       {/* Controls bar */}
-      <div className="flex items-center justify-between mt-2 px-1">
-        <span className="text-xs text-muted">{title}</span>
-        <div className="flex gap-2">
-          <button
-            onClick={handleReload}
-            className="flex items-center gap-1.5 text-xs text-muted hover:text-white transition-colors"
-          >
-            <RefreshCw className="w-3.5 h-3.5" /> Reiniciar
-          </button>
-          <button
-            onClick={toggleFullscreen}
-            className="flex items-center gap-1.5 text-xs text-accent hover:text-accent-dark font-semibold transition-colors"
-          >
-            <Maximize2 className="w-3.5 h-3.5" /> Pantalla completa
-          </button>
-        </div>
+      <div className="flex items-center justify-between mt-3 px-1 gap-3">
+        <button
+          onClick={handleReload}
+          className="flex items-center gap-1.5 text-xs text-muted hover:text-white transition-colors"
+        >
+          <RefreshCw className="w-3.5 h-3.5" /> Reiniciar
+        </button>
+
+        {/* Big fullscreen button */}
+        <button
+          onClick={toggleFullscreen}
+          className="flex-1 flex items-center justify-center gap-2 bg-accent hover:bg-accent/80 text-white font-semibold text-sm py-2.5 rounded-xl transition-colors"
+        >
+          <Maximize2 className="w-4 h-4" />
+          {isFullscreen ? 'Salir de pantalla completa' : '⛶ Jugar en pantalla completa'}
+        </button>
+
+        <span className="text-xs text-muted hidden md:block truncate max-w-[150px]">{title}</span>
       </div>
     </div>
   );

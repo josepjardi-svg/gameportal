@@ -27,7 +27,7 @@ export default function DmcaPage() {
         </section>
         <section>
           <h2 className="text-white font-semibold text-lg mb-2">Respuesta</h2>
-          <p>Revisaremos todas las notificaciones y eliminaremos el contenido infractor en un plazo de 48 horas si la notificación es válida.</p>
+          <p>Revisaremos todas las notificaciones y eliminaremos el contenido infractor en un plazo de 72 horas si la notificación es válida.</p>
         </section>
       </div>
     </div>
